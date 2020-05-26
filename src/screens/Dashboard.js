@@ -1,10 +1,10 @@
 
 import React from 'react';
-import logo from '../logo.svg';
 import { ClickAwayListener } from "@material-ui/core";
 
 import Sidebar from '../components/Sidebar';
 import NavBar from "../components/NavBar";
+import ListingScreen from "./ListingScreen";
 
 const items = [
   { name: 'home', label: 'Home', selected: true },
@@ -74,20 +74,10 @@ class Dashboard extends React.Component {
         <div className="App">
           {this.getSideBar()}
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
+            <ListingScreen className="sideBarItem"></ListingScreen>
           </header>
         </div>
+
       </div>
     )
   }

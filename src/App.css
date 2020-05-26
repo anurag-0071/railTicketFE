@@ -64,15 +64,51 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white; */
+}
+
+.listingScreen{
+  display: flex;
+  margin: 1%;
+  border: 100%;
+  padding: 1%;
+  border-color: yellow;
+  flex-direction: column;
+}
+
+.listScreenHeader{
+  display: flex;
+  flex-direction: row;
+  align-items: centre;
+  margin-bottom: 1%;
+  background-color: red;
+  height: 15vmin;
+  justify-content: space-between;
+}
+
+.listScreenTitle{
+  font-size: 400px;
+  /* align-self: flex-start;
+  background-color: black; */
+}
+
+.listScreenCount {
+  display: flex;
+  align-self: flex-end;
+}
+
+.listingModalHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .App-link {
