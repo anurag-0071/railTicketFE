@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import LoginPage from "./screens/LoginPage";
+import Dashboard from './screens/Dashboard';
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: true,
+      showLoginPage: false,
+      showSignUpPage: false,
+    }
+  }
+
+  getScreen = () => {
+    if (this.state.isLoggedIn) {
+      // show dashboard
+      return <Dashboard></Dashboard>
+    } else {
+      // show login page
+      return <LoginPage
+        showLoginPage={this.state.showLoginPage}
+        showSignUpPage={this.state.showSignUpPage}
+      >
+      </LoginPage>
+    }
+  }
+
+  render() {
+    return (
+      <div >
+        {this.getScreen()}
+      </div>
+    );
+  }
 }
 
 export default App;

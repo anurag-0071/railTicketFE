@@ -1,9 +1,59 @@
+
+.sidebar {
+  width: 100%;
+  min-width: 240px;
+  /* max-width: 240px; */
+  background-color: lightslategray;
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+.sideBarItem {
+  width: 100%;
+}
+
+.LoginPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../src/railAPPimage.jpg');
+}
+
+.LoginModal {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  background-color: white;
+  width: 25%;
+  height: max-content;
+  align-self: flex-end  ;
+  border: 1%;
+  opacity: 50%;
+  margin: 1%;
+}
+
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.Container {
+  display: flex;
+  flex-direction: coloumn;
+}
+
 .App {
   text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .App-logo {
   height: 40vmin;
+  /* width: auto; */
   pointer-events: none;
 }
 
@@ -18,6 +68,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
