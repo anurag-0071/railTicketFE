@@ -5,28 +5,31 @@ import { List, ListItem, ListItemText } from "@material-ui/core"
 const getColoumns = (coloumns) => {
   return (
     coloumns.map(key => {
-      return (
-        <ListItem>
-          <ListItemText>
-            <b>
-              {key}
-            </b>
-          </ListItemText>
-        </ListItem>
-      )
+      if (key !== "id" && key !== "selected") {
+        return (
+          <ListItem>
+            <ListItemText>
+              <b>
+                {key}
+              </b>
+            </ListItemText>
+          </ListItem>
+        )
+      }
     })
   )
 }
 
 function ListingModalHeader({ coloumns }) {
   return (
-    <List
+    <List dense
       style={{
-        backgroundColor: "#c1c1c1",
+        backgroundColor: "whitesmoke",
       }}
     >
       <ListItem>
-        <List className="listingModalHeader"
+        <List
+          className="listingModalHeader"
           style={{
             width: "100%"
           }}

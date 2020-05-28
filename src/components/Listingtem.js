@@ -8,7 +8,9 @@ const getListItemContent = (listType, listItem) => {
       console.log("key", key, "listitem", listItem[key])
       contentArray.push(
         <ListItem>
-          <ListItemText>{listItem[key]}</ListItemText>
+          <ListItemText>
+            {key === "runsOn" ? listItem[key].join(",") : listItem[key]}
+          </ListItemText>
         </ListItem>
       )
     }
@@ -22,6 +24,7 @@ function ListingItem({ listType, listItem, handleListItemClick }) {
     <div>
       <ListItem
         // style={{ display: "flex" }}
+        dense
         key={listItem.id}
         button
         selected={listItem.selected}
