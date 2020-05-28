@@ -62,6 +62,27 @@ const trainList = [
   },
 ]
 
+const stationList = [
+  {
+    id: "5",
+    name: "station1",
+    // trainNo: 
+    label: "Station1",
+    city: "city1",
+    state: "state1",
+    selected: false
+  },
+  {
+    id: "6",
+    name: "station1",
+    // trainNo: 
+    label: "Station1",
+    city: "city1",
+    state: "state1",
+    selected: true
+  },
+]
+
 
 
 class ListingScreen extends React.Component {
@@ -92,7 +113,7 @@ class ListingScreen extends React.Component {
       <div className="listingScreen">
         <ListingHeader></ListingHeader>
         <ListingModal
-          coloumns={this.state.coloumns}
+          coloumns={Object.keys(this.state.trainList[0])}
           items={this.state.trainList}
         />
 
