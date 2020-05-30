@@ -16,6 +16,7 @@ const getColoumns = (coloumns) => {
           </ListItem>
         )
       }
+      return null
     })
   )
 }

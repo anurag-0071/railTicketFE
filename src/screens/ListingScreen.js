@@ -1,7 +1,10 @@
 import React from "react";
+import { Button, } from "@material-ui/core";
+import CreateIcon from '@material-ui/icons/Create';
 
 import ListingHeader from "../components/ListingHeader";
 import ListingModal from "../components/ListingModal";
+import AddItems from "../components/AddItems";
 
 const trainList = [
   {
@@ -90,6 +93,13 @@ class ListingScreen extends React.Component {
   constructor(props) {
     super(props);
 
+    /*
+    props = {
+      title,
+
+    }
+    */
+
     this.state = {
       trainList: trainList,
       isLoading: false,
@@ -101,22 +111,60 @@ class ListingScreen extends React.Component {
         "Runs On",
         "Departure Time",
         "Arrival Time"
-      ]
+      ],
+      showCreateModal: true,
     }
   }
 
+  clickAdd = () => {
+    this.setState({
+      showCreateModal: true
+    })
+  }
 
+  closeAdditionDialog = () => {
+    this.setState({
+      showCreateModal: !this.state.showCreateModal
+    })
+  }
 
+  createModalFields = () => {
+    return [
+      { label: "Train Name", type: "text" },
+      { label: "Train No", type: "text" },
+      { label: "From Station", type: "text" },
+      { label: "To Station", type: "text" }
+    ]
+  }
 
   render() {
     return (
       <div className="listingScreen">
-        <ListingHeader></ListingHeader>
+        <ListingHeader title={this.props.title}></ListingHeader>
+        <Button
+          variant="contained"
+          color="primary"
+          startIcon={<CreateIcon></CreateIcon>}
+          style={{
+            alignSelf: "flex-end"
+          }}
+          onClick={this.clickAdd}
+        > Add Train</Button>
         <ListingModal
           coloumns={Object.keys(this.state.trainList[0])}
           items={this.state.trainList}
         />
 
+        {
+          this.state.showCreateModal ?
+            <AddItems
+              dialogTitle="Add train"
+              fields={this.createModalFields()}
+              isOpen={this.state.showCreateModal}
+              handleClose={this.closeAdditionDialog}
+            /> :
+            null
+        }
       </div>
     )
   }

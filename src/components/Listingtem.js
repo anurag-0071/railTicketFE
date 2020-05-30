@@ -5,7 +5,6 @@ const getListItemContent = (listType, listItem) => {
   const contentArray = [];
   for (const key in listItem) {
     if (key !== "id" && key !== "selected") {
-      console.log("key", key, "listitem", listItem[key])
       contentArray.push(
         <ListItem>
           <ListItemText>

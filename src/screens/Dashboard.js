@@ -74,7 +74,7 @@ class Dashboard extends React.Component {
         <div className="App">
           {this.getSideBar()}
           <header className="App-header">
-            <ListingScreen className="sideBarItem"></ListingScreen>
+            <ListingScreen className="sideBarItem" title="Trains"></ListingScreen>
           </header>
         </div>
 
