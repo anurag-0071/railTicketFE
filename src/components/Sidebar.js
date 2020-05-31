@@ -19,7 +19,7 @@ export default class Sidebar extends React.Component {
   render() {
     return (
       <div >
-        <List dense className="sideBarItem">
+        <List className="sideBarItem">
           {this.state.items.map(({ label, name, selected }) => (
             <ListItem
 
