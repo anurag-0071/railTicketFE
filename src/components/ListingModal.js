@@ -16,13 +16,18 @@ function ListingModal({ coloumns, items }) {
       />
       <List
       >
-        {items.map(item => (
-          <ListingItem
-            listType={"train"}
-            listItem={item}
-            handleListItemClick={handleListItemClick}
-          />
-        ))}
+        {items.map(item => {
+          console.log("item", item)
+          return (
+            <ListingItem
+              key={item.id}
+              itemKey={item.id}
+              listType={"train"}
+              listItem={item}
+              handleListItemClick={handleListItemClick}
+            />
+          )
+        })}
       </List>
     </div>
   )

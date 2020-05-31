@@ -3,28 +3,29 @@ import { ListItem, ListItemText, List } from "@material-ui/core";
 
 const getListItemContent = (listType, listItem) => {
   const contentArray = [];
+  let i = 0;
   for (const key in listItem) {
     if (key !== "id" && key !== "selected") {
       contentArray.push(
-        <ListItem>
+        <ListItem key={i++}>
           <ListItemText>
             {key === "runsOn" ? listItem[key].join(",") : listItem[key]}
           </ListItemText>
         </ListItem>
-      )
+      );
     }
   }
   return contentArray;
 }
 
-function ListingItem({ listType, listItem, handleListItemClick }) {
+function ListingItem({ itemKey, listType, listItem, handleListItemClick }) {
   return (
     // container
     <div>
       <ListItem
         // style={{ display: "flex" }}
         dense
-        key={listItem.id}
+        key={itemKey}
         button
         selected={listItem.selected}
         onClick={handleListItemClick}

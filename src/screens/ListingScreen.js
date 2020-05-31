@@ -96,7 +96,13 @@ class ListingScreen extends React.Component {
     /*
     props = {
       title,
-
+      count,
+      coloumns,
+      listItems,
+      createModalForm,
+      onCreate,
+      onDelete,
+      
     }
     */
 
@@ -112,7 +118,7 @@ class ListingScreen extends React.Component {
         "Departure Time",
         "Arrival Time"
       ],
-      showCreateModal: true,
+      showCreateModal: false,
     }
   }
 
