@@ -1,8 +1,6 @@
 import React from 'react';
 import { TableContainer, Paper, TableHead, Table, TableCell, TableRow, makeStyles, TableBody } from "@material-ui/core";
 
-import ListingModalHeader from "./ListingModalHeader";
-import ListingItem from "./Listingtem"
 import { withStyles } from '@material-ui/core/styles';
 
 const handleListItemClick = () => {
