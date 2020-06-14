@@ -1,9 +1,8 @@
 import React from 'react';
-import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, MenuItem } from '@material-ui/core';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 
 const AddItems = ({
   dialogTitle,
-  fields,
   isOpen,
   handleClose,
   createModal,
@@ -11,7 +10,6 @@ const AddItems = ({
 }) => {
 
   const onClick = (e, v, s) => {
-    alert("onclick Add Items")
     onClickAdd(e, v, s);
   }
 

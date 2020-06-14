@@ -1,12 +1,9 @@
 import React from "react";
 import moment from "moment";
-import { CircularProgress, Button, Typography, TextField, MenuItem } from "@material-ui/core";
+import { CircularProgress, TextField, MenuItem } from "@material-ui/core";
 import { Pagination, PaginationItem } from "@material-ui/lab";
-import CreateIcon from '@material-ui/icons/Create';
 
-import ListingHeader from "../components/ListingHeader";
 import ListingModal from "../components/ListingModal";
-import AddItems from "../components/AddItems";
 import MyAlert from "../components/MyAlert";
 import ListingScreen from "./ListingScreen";
 
@@ -267,8 +264,6 @@ class Users extends React.Component {
   }
 
   createUser = () => {
-
-    alert("Creating new user");
 
     if (this.validateInput()) {
       fetch(this.createAdminURL, {
