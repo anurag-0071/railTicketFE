@@ -7,8 +7,13 @@ const AddItems = ({
   isOpen,
   handleClose,
   createModal,
-  createUser,
+  onClickAdd,
 }) => {
+
+  const onClick = (e, v, s) => {
+    alert("onclick Add Items")
+    onClickAdd(e, v, s);
+  }
 
   return (
     <div >
@@ -23,7 +28,7 @@ const AddItems = ({
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={createUser} color="primary">
+          <Button onClick={onClick} color="primary">
             Add
           </Button>
         </DialogActions>

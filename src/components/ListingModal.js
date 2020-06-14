@@ -1,8 +1,6 @@
 import React from 'react';
-import { List, TableContainer, Paper, TableHead, Table, TableCell, TableRow, makeStyles, TableBody } from "@material-ui/core";
+import { TableContainer, Paper, TableHead, Table, TableCell, TableRow, makeStyles, TableBody } from "@material-ui/core";
 
-import ListingModalHeader from "./ListingModalHeader";
-import ListingItem from "./Listingtem"
 import { withStyles } from '@material-ui/core/styles';
 
 const handleListItemClick = () => {
@@ -68,7 +66,7 @@ const getTableContent = (items) => {
     for (const key in item) {
       if (key !== "id") {
         rowItemArr.push(
-          <StyledTableCell key={key + " " + index} align={"center"}>
+          <StyledTableCell onClick={handleListItemClick} key={key + " " + index} align={"center"}>
             {item[key]}
           </StyledTableCell >
         )
