@@ -16,7 +16,7 @@ const AddItems = ({
   }
 
   return (
-    <div >
+    <div>
       <Dialog open={isOpen} color="primary" onClose={handleClose} fullWidth aria-labelledby="form-dialog-title" >
         <DialogTitle id="form-dialog-title" style={{ color: "#284293" }}>{dialogTitle}</DialogTitle>
         <DialogContent>
