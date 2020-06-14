@@ -12,9 +12,7 @@ export default class Sidebar extends React.Component {
     this.state = { ...props };
   }
 
-  componentWillUpdate() {
-    // console.log("props", this.props)
-  }
+  i = 0;
 
   render() {
     return (
@@ -22,11 +20,11 @@ export default class Sidebar extends React.Component {
         <List className="sideBarItem">
           {this.state.items.map(({ label, name, selected }) => (
             <ListItem
-
+              id={this.i++}
               key={name}
               button
               selected={selected}
-              onClick={() => this.state.handleClick(label)}
+              onClick={(e) => this.state.handleClick(label)}
             >
               <ListItemText >{label}</ListItemText>
             </ListItem>

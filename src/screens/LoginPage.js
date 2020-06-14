@@ -109,24 +109,6 @@ class LoginPage extends React.Component {
 
   handleFieldValueChange = (event, id) => {
     const value = event.target.value;
-
-    // console.log('updating state', id, value, typeof value)
-    // if (id === 'phone' && value / 10000000000 > 1) {
-    //   const errors = this.state.errors;
-    //   errors.phone = "Max 10 digits allowed";
-    //   this.setState({
-    //     errors
-    //   })
-    //   return;
-    // } else if (id === "phone") {
-    //   // const errors = this.state.errors;
-    //   // errors.phone = "";
-    //   // this.setState({
-    //   //   errors,
-    //   //   phone: value
-    //   // })
-    //   return;
-    // }
     this.setState({
       [id]: value
     })
@@ -142,7 +124,6 @@ class LoginPage extends React.Component {
   }
 
   getLoginModal = () => {
-    console.log('this.state = ', this.state)
     if (this.state.showLoginPage) {
       return (
         <form className="LoginForm">
