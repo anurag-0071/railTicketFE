@@ -7,15 +7,15 @@ const getColoumns = (coloumns) => {
   return (
     coloumns.map(key => {
       if (key !== "id" && key !== "selected") {
-        return (
+      return (
           <ListItem key={i++}>
-            <ListItemText>
-              <b>
-                {key}
-              </b>
-            </ListItemText>
-          </ListItem>
-        )
+          <ListItemText>
+            <b>
+              {key}
+            </b>
+          </ListItemText>
+        </ListItem>
+      )
       }
       return null
     })

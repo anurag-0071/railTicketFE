@@ -73,19 +73,6 @@ class ListingScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    /*
-    props = {
-      title,
-      count,
-      coloumns,
-      listItems,
-      createModalForm,
-      onCreate,
-      onDelete,
-
-    }
-    */
-
     this.state = {
       trainList: trainList,
       isLoading: false,
@@ -125,7 +112,7 @@ class ListingScreen extends React.Component {
 
   getView = () => {
     if (this.props.isLoading) {
-      return (
+    return (
         <CircularProgress
           className="loader"
         >
@@ -134,10 +121,10 @@ class ListingScreen extends React.Component {
     } else {
       return (
         <div>
-          <ListingModal
+        <ListingModal
             coloumns={this.props.coloumns}
             items={this.props.items}
-          />
+        />
           <div style={{ display: "flex", flexDirection: "row", justifyContent: "flex-end" }}>
             <Pagination
               color='secondary'
