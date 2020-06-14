@@ -16,7 +16,7 @@ class ListScreenHeader extends React.Component {
         </div>
         {/* count on right */}
         <div className="listScreenCount">
-          <Typography> count: 0</Typography>
+          <Typography> count: {this.props.count}</Typography>
         </div>
       </div>
     )

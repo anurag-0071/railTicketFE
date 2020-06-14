@@ -102,7 +102,7 @@ class ListingScreen extends React.Component {
       createModalForm,
       onCreate,
       onDelete,
-      
+
     }
     */
 
@@ -130,7 +130,7 @@ class ListingScreen extends React.Component {
 
   closeAdditionDialog = () => {
     this.setState({
-      showCreateModal: !this.state.showCreateModal
+      showCreateModal: false
     })
   }
 
@@ -145,8 +145,8 @@ class ListingScreen extends React.Component {
 
   render() {
     return (
-      <div className="listingScreen">
-        <ListingHeader title={this.props.title}></ListingHeader>
+      <div style={{ height: "100%", display: "flex", flexDirection: "column" }} >
+        <ListingHeader title={this.props.title} count={this.props.count}></ListingHeader>
         <Button
           variant="contained"
           color="primary"

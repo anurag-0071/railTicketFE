@@ -1,65 +1,29 @@
 import React from 'react';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, MenuItem } from '@material-ui/core';
 
-function AddItems({
+const AddItems = ({
   dialogTitle,
   fields,
   isOpen,
-  handleClose
-}) {
-
-
-
-
-  const getFormFields = () => {
-    console.log("dialog fields", fields)
-
-    const ret = fields.map(field => {
-      const type = field.type;
-      const label = field.label;
-
-      console.log("field", field)
-      if (type === "text") {
-        return (
-          <TextField
-            autoFocus
-            margin="dense"
-            select
-            id={label}
-            label={label}
-            type={type}
-            fullWidth
-          >
-            <MenuItem key={"Male"} value={"Male"}>
-              Male
-          </MenuItem>
-            <MenuItem key={"Female"} value={"Female"}>
-              Female
-          </MenuItem>
-          </TextField>
-        )
-      } else {
-        return null;
-      }
-    });
-    console.log("ret = ", ret);
-    return ret;
-  }
+  handleClose,
+  createModal,
+  createUser,
+}) => {
 
   return (
-    <div>
-      <Dialog open={isOpen} onClose={handleClose} fullWidth aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">{dialogTitle}</DialogTitle>
+    <div >
+      <Dialog open={isOpen} color="primary" onClose={handleClose} fullWidth aria-labelledby="form-dialog-title" >
+        <DialogTitle id="form-dialog-title" style={{ color: "#284293" }}>{dialogTitle}</DialogTitle>
         <DialogContent>
           <DialogContentText>
           </DialogContentText>
-          {getFormFields()}
+          {createModal}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={createUser} color="primary">
             Add
           </Button>
         </DialogActions>
