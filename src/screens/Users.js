@@ -1,13 +1,11 @@
 import React from "react";
 import moment from "moment";
-import { CircularProgress, Button, Typography, TextField, MenuItem } from "@material-ui/core";
+import { CircularProgress, TextField, MenuItem } from "@material-ui/core";
 import { Pagination, PaginationItem } from "@material-ui/lab";
-import CreateIcon from '@material-ui/icons/Create';
 
-import ListingHeader from "../components/ListingHeader";
 import ListingModal from "../components/ListingModal";
-import AddItems from "../components/AddItems";
 import MyAlert from "../components/MyAlert";
+import ListingScreen from "./ListingScreen";
 
 class Users extends React.Component {
 
@@ -266,6 +264,7 @@ class Users extends React.Component {
   }
 
   createUser = () => {
+
     if (this.validateInput()) {
       fetch(this.createAdminURL, {
         method: "POST",
@@ -378,31 +377,22 @@ class Users extends React.Component {
       <div className="listingScreen"
       >
         {this.showAlert()}
-        <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
-          <ListingHeader title={"Users"} count={this.state.totalCount}></ListingHeader>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<CreateIcon />}
-            style={{
-              alignSelf: "flex-end",
-              marginBottom: "1%"
-            }}
-            onClick={this.clickAdd}
-          > Add User</Button>
-          {
-            this.state.showCreateModal ?
-              <AddItems
-                dialogTitle="Add User"
-                // fields={this.createModalFields()}
-                isOpen={this.state.showCreateModal}
-                handleClose={this.closeAdditionDialog}
-                createModal={this.getCreateModal()}
-                createUser={this.createUser}
-              /> : null
-          }
-          {this.getView()}
-        </div>
+        <ListingScreen
+          title={"Users"}
+          count={this.state.totalCount}
+          createActionText={"Add User"}
+          isLoading={this.state.isLoading}
+          coloumns={this.state.coloumns}
+          items={this.state.users}
+          pages={this.state.pages}
+          changePage={this.fetchUserList}
+          clickAdd={this.clickAdd}
+          createModalTitle={"Add User"}
+          showCreateModal={this.state.showCreateModal}
+          createModal={this.getCreateModal()}
+          onClickAdd={this.createUser}
+          closeAdditionDialog={this.closeAdditionDialog}
+        />
       </div>
     )
   }

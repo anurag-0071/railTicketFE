@@ -1,17 +1,20 @@
 import React from 'react';
-import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, MenuItem } from '@material-ui/core';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 
 const AddItems = ({
   dialogTitle,
-  fields,
   isOpen,
   handleClose,
   createModal,
-  createUser,
+  onClickAdd,
 }) => {
 
+  const onClick = (e, v, s) => {
+    onClickAdd(e, v, s);
+  }
+
   return (
-    <div >
+    <div>
       <Dialog open={isOpen} color="primary" onClose={handleClose} fullWidth aria-labelledby="form-dialog-title" >
         <DialogTitle id="form-dialog-title" style={{ color: "#284293" }}>{dialogTitle}</DialogTitle>
         <DialogContent>
@@ -23,7 +26,7 @@ const AddItems = ({
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={createUser} color="primary">
+          <Button onClick={onClick} color="primary">
             Add
           </Button>
         </DialogActions>
