@@ -5,22 +5,25 @@ import { ClickAwayListener } from "@material-ui/core";
 import Sidebar from '../components/Sidebar';
 import NavBar from "../components/NavBar";
 import ListingScreen from "./ListingScreen";
+import Users from './Users';
 
 const items = [
-  { name: 'home', label: 'Home', selected: true },
-  { name: 'sales', label: 'Sales' },
-  { name: 'orders', label: 'Orders' },
-  { name: 'billing', label: 'Billing' },
-  { name: 'settings', label: 'Settings' }]
+  { name: 'home', label: 'Home' }, // booking screen
+  { name: "ticketHistory", label: "Ticket History" },
+  { name: 'trainList', label: 'Train List' },
+  { name: 'stationList', label: 'Station List' },
+  { name: 'users', label: 'Manage Users', selected: true },
+  // { name: 'settings', label: 'Settings' }
+]
 
 class Dashboard extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(" dashboard props", props)
     this.state = {
       items,
       showMenu: false,
+      currentScreen: "Manage Users",
       ...props
     }
   }
@@ -29,7 +32,6 @@ class Dashboard extends React.Component {
     this.setState({
       showMenu: !this.state.showMenu
     })
-    console.log("state after", this.state);
   }
 
   handleSideBarClick = (key) => {
@@ -42,14 +44,13 @@ class Dashboard extends React.Component {
       }
     });
     this.setState({
-      items: items
+      items: items,
+      currentScreen: key
     })
   }
 
   getSideBar = () => {
-    console.log("show menu", this.state.showMenu)
     if (this.state.showMenu) {
-      console.log("returning sidebar element")
       return (
         <div className="Container">
           <div className="sidebar">
@@ -66,15 +67,30 @@ class Dashboard extends React.Component {
     }
   }
 
+  getScreen = () => {
+    switch (this.state.currentScreen) {
+      case "Manage Users":
+        return (
+          <Users >
+
+          </Users>
+        )
+
+      default:
+        return (
+          <ListingScreen title="Trains"></ListingScreen>
+        )
+    }
+  }
+
   render() {
-    console.log("states before render", this.state)
     return (
       <div>
         <NavBar toggleMenu={this.toggleMenu}></NavBar>
         <div className="App">
           {this.getSideBar()}
           <header className="App-header">
-            <ListingScreen className="sideBarItem"></ListingScreen>
+            {this.getScreen()}
           </header>
         </div>
 

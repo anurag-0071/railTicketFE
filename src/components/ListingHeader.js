@@ -3,10 +3,6 @@ import { Typography } from '@material-ui/core'
 
 
 class ListScreenHeader extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
 
   render = () => {
     return (
@@ -16,11 +12,11 @@ class ListScreenHeader extends React.Component {
         <div className="listScreenTitle">
           <Typography className="listScreenTitle"
             style={{ fontSize: "50px" }}
-          >Trains</Typography>
+          >{this.props.title}</Typography>
         </div>
         {/* count on right */}
         <div className="listScreenCount">
-          <Typography> count: 0</Typography>
+          <Typography> count: {this.props.count}</Typography>
         </div>
       </div>
     )

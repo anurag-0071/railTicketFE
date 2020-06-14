@@ -22,8 +22,8 @@ export default function NavBar({ toggleMenu }) {
     <div className={classes.root} >
       <AppBar position="static">
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon onClick={toggleMenu} />
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleMenu} >
+            <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit">
             Rail Ticket App
